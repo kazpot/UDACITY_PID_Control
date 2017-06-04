@@ -82,3 +82,6 @@ that's just a guess.
 
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
+
+##Build
+g++ -o pid PID.cpp PID.h json.hpp main.cpp -std=c++11 -luWS -luv -lz -lssl
