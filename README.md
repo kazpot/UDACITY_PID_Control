@@ -13,11 +13,28 @@ The goal is to reliabliy run the car on the simulater by contollling steering an
 ## Rubic Discussion
 
 * Describe the effect each of the P, I, D components had in your implementation
- * P (Proportional) eror is proportional to the cross-track error (CTE). 
- It makes car quickly react to the CTE. If the car runs on far rihght, it makes it turns to the left sharply and vice versa. 
+
+  * P (Proportional) eror is proportional to the cross-track error (CTE). 
+ It makes car quickly react to the CTE. If the car runs on far rihght, it makes it turns to the left sharply to bring the car to the center line and vice versa. 
  Increasing the weight Kp enables car to react quickly to the CTE, but the car might tend to oscillate and overshoot.
  So only increasing Kp might lead to unstable run. 
-       
+
+  * D (Differential) error is proportional to the change of CTE. 
+  It makes car react to the overshoot caused by increasing Kp weight and ease the overshoot.
+  The proper Kd weight will control car to the center line very smoothly. 
+
+  * I (Integral) error is proportional to the integral of CTE. The constant error that accumulates as car runs. 
+  It prevents the constant error from accumurating and enables car to run in the stable state for a while. 
+
+* Describe how the final hyperparameters were chosen
+  * I tuned parameters manually. I first set Kp value and zero to Ki and Kd for observing its behavior. 
+  Increasing Kp makes high reaction to CTE so car stars circling and doesn't run straight. 
+  So I decreased Kp to get proper value, but car still oscillates strongly and overshoots at the curve.
+  Secondly I set Kd value and start increasing this value until the oscillation is reduced properly.
+  This enables car to run in stable state, but car couldn't react to the sharp turn. 
+  I increased gradually Kp and Kd value until the car runs on the track reliably and react to the sharp turn. 
+  Thirdly I set tiny value to Ki and increased little by little until car runs on the track reliably in the most stable state. 
+  The final values used by my implementation are: Kp = 0.16, Ki = 0.0005, and Kd = 0.5.
    
 
 ## Dependencies
