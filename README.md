@@ -3,6 +3,17 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Introduction
+
+The purpose of this project is to build PID controller and tune the hyperparameters. 
+The built solution was tested on the simulater provided by Udacity. 
+The simulator sends cross-track error (CTE), speed, and steering angle to the PID contoller via tiny websocket. 
+The goal is to reliabliy run the car on the simulater by contollling steering angle and throttle using the PID controller. 
+
+## Rubic Discussion
+
+* 
+
 ## Dependencies
 
 * cmake >= 3.5
@@ -83,5 +94,5 @@ that's just a guess.
 One last note here: regardless of the IDE used, every submitted project must
 still be compilable with cmake and make./
 
-## Build
+## Alternative way to build
 g++ -o pid PID.cpp PID.h json.hpp main.cpp -std=c++11 -luWS -luv -lz -lssl
