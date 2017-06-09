@@ -12,7 +12,13 @@ The goal is to reliabliy run the car on the simulater by contollling steering an
 
 ## Rubic Discussion
 
-* 
+* Describe the effect each of the P, I, D components had in your implementation
+ * P (Proportional) eror is proportional to the cross-track error (CTE). 
+ It makes car quickly react to the CTE. If the car runs on far rihght, it makes it turns to the left sharply and vice versa. 
+ Increasing the weight Kp enables car to react quickly to the CTE, but the car might tend to oscillate and overshoot.
+ So only increasing Kp might lead to unstable run. 
+       
+   
 
 ## Dependencies
 
